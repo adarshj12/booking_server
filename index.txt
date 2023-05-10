@@ -1,0 +1,18 @@
+
+4.make amenities as array of objects with 
+    features =[
+        {
+            icon:<FaIcon/>
+            title:Restaurant
+        }
+    ]    import these as per requirement
+5.add verified field to hotel
+7.if the token is tampered with, check localStorage token with the store token , mismatch aagadhre login page route maadi.
+8. adding pagination creates a problem if there is a search button. So send data from server in sorted name , there take respective page
+9. add more rooms with the same title, whie showing the user show only the first one.
+11.on adding + to rooms, just go to the rooms collection, find room with the same title and unavailableDates =[] empty array. 
+    push these dates to that array.
+12.status:booked, confirmed, expired,canceled
+13.store mobile number in redux store, on reaching home page, useSelector(user.mobile) if it is null, trigger a modal to takemobile number.
+14.add view rooms in client inside the view hotel, make a table to edit and delete rooms
+15.cannot update images + data, either of those, even which , cannot update single image alone.
