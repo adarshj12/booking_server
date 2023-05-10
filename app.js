@@ -25,6 +25,10 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/',(req,res)=>{
+    res.json({message:'server started'})
+})
+
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/admin', adminRoute);
 app.use('/api/v1/client', clientRoute);
