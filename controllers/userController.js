@@ -241,7 +241,7 @@ const verification = async (req, res) => {
 
     if (isAuthentic) {
         await createBooking(BOOKING_DETAILS.hotelid, BOOKING_DETAILS.room, BOOKING_DETAILS.dateRange, BOOKING_DETAILS.count, BOOKING_DETAILS.user, { razorpay: true, id: razorpay_payment_id }, BOOKING_DETAILS.rate);
-        res.redirect(`http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`)
+        res.redirect(`https://www.booknstay.site/paymentsuccess?reference=${razorpay_payment_id}`)
     } else {
         res.status(400).json({ success: false })
     }
@@ -266,8 +266,8 @@ const stripe_payment = async (req, res) => {
         ],
         mode: 'payment',
 
-        success_url: `http://localhost:3000/paymentsuccess`,
-        cancel_url: 'http://localhost:3000/paymentcancel',
+        success_url: `https://www.booknstay.site/paymentsuccess`,
+        cancel_url: 'https://www.booknstay.site/paymentcancel',
     });
     res.json({ url: session.url });
 }

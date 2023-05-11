@@ -30,14 +30,8 @@ const getAllUsers = async (req, res) => {
         const size = req.query.size ? parseInt(req.query.size) : 10;
         const skip = (page - 1) * size;
         const users = await User.find();
-        // if (users.length > 0) {
-        //     return res.status(201).json({ message: 'users found', users });
-        // } else {
-        //     return res.status(404).json({ message: 'users not found' });
-        // }
         const total = users.length;
         const list = users.slice(skip, skip + size);
-        //console.log(list);
         return res.json({
             records: list,
             total,
@@ -57,12 +51,8 @@ const getAllClients = async (req, res) => {
         const size = req.query.size ? parseInt(req.query.size) : 10;
         const skip = (page - 1) * size;
         const clients = await Client.find();
-        // console.log(clients);
-        // if (clients.length > 0) return res.status(201).json({ message: 'clients found', clients })
-        // res.status(404).json({ message: 'clients not found' })
         const total = clients.length;
         const list = clients.slice(skip, skip + size);
-        //console.log(list);
         return res.json({
             records: list,
             total,
@@ -130,10 +120,8 @@ const getAllProperties = async (req, res) => {
                 }
             }
         ])
-        // res.status(200).json(hotels)
         const total = hotels.length;
         const list = hotels.slice(skip, skip + size);
-        //console.log(list);
         return res.json({
             records: list,
             total,
@@ -345,7 +333,7 @@ const verification = async (req, res) => {
 
     if (isAuthentic) {
         await payclient(PAYMENT_DATA.id, PAYMENT_DATA.share, PAYMENT_DATA.payid);
-        res.redirect(`http://localhost:3000/admin/paymentsuccess?reference=${razorpay_payment_id}`)
+        res.redirect(`https://www.booknstay.site/admin/paymentsuccess?reference=${razorpay_payment_id}`)
     } else {
         res.status(400).json({ success: false })
     }
